@@ -5,31 +5,7 @@ from .models import Feature
 # Create your views here.
 
 def index(request):
-    feature1 = Feature()
-    feature1.id = 1
-    feature1.is_true = True
-    feature1.name = 'HARUTO MORI'
-    feature1.details = 'Japanese society'
-
-
-    feature2 = Feature()
-    feature2.id = 2
-    feature2.is_true = True
-    feature2.name = 'YAZAN GHUNAIM'
-    feature2.details = 'Jordanian society'
-
-    feature3 = Feature()
-    feature3.id = 3
-    feature3.is_true = False
-    feature3.name = 'JOSE LOPEZ'
-    feature3.details = 'Middle american society'
-
-    features = [
-        feature1,
-        feature2,
-        feature3,
-    ]
-
+    features = Feature.objects.all()
     return render(request, 'index.html', {'features': features})
 
 def counter(request):

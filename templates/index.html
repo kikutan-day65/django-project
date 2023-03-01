@@ -89,13 +89,12 @@
           
           {% for feature in features %}
             <h2>{{ feature.id }}: {{ feature.name }}</h2>
-            <p>{{ feature.details }}</p>
+            <p>{{ feature.detail }}</p>
             
-            {% if feature.is_true == True %}
-              <p>This feature is {{ feature.is_true }}</p>
-            {% else %}
-              <p>unfortunately, {{ feature.is_true }}</p>
+            {% if feature.name == 'superUser' %}
+              <p>You are my Master</p>
             {% endif %}
+              
             <br>
           {% endfor %}
 

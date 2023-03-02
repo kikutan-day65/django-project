@@ -48,7 +48,16 @@
 
       <div class="profile">
         <img src="{% static 'assets/img/profile-img.jpg' %}" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">{{ feature1.name }}</a></h1><br>
+        <h1 class="text-light"><a href="index.html">
+          
+          <!-- check i fuser is logged in -->
+          {% if user.is_authenticated %}
+            <h1>Hi, {{user.username}}</h1>
+          {% else %}
+            <h1>Hi, plz login</h1>
+          {% endif %}
+            
+        </a></h1><br>
         <div class="social-links mt-3 text-center">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -60,7 +69,19 @@
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>{{ feature1.id }}</span></a></li>
+          <li>
+            
+            {% if user.is_authenticated %}
+            <a href="logout" class="nav-link scrollto active"><i class="bx bx-home"></i>
+              <span>Logout</span>
+            </a>
+            {% else %}
+            <a href="login" class="nav-link scrollto active"><i class="bx bx-home"></i>
+              <span>Login</span>
+            </a>
+            {% endif %}
+
+          </li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>{{ feature2.id }}</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>{{ feature3.id }}</span></a></li>
           <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>

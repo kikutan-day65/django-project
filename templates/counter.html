@@ -1,2 +1,4 @@
-{{ text }} <br>
-{{ word_amounts }}
+
+{% for post in posts %}
+<h1><a href="{% url 'post' post %}">POST</a></h1>
+{% endfor %}
